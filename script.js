@@ -8,7 +8,8 @@ function startStop(){
 
         $("#start-stop").html('Stop');
         timeLastStarted = Date.now();
-      
+        $("#start-stop").removeClass('btn btn-success button');
+        $("#start-stop").addClass('btn btn-warning button');
         setInterval(ticker, 20);
 
     }
@@ -16,7 +17,8 @@ function startStop(){
     else{
 
         $("#start-stop").html('Start');
-        
+        $("#start-stop").removeClass('btn btn-warning button');
+        $("#start-stop").addClass('btn btn-success button');
         elapsed += (Date.now() - timeLastStarted) / 1000;
 
         timeLastStarted = null;
@@ -40,5 +42,8 @@ function reset(){
     timeLastStarted = null;
     elapsed = 0;
     fullElapsed = 0;
+    $("#start-stop").removeClass('btn btn-warning button');
+    $("#start-stop").addClass('btn btn-success button');
     $("#start-stop").html('Start');
+    
 }
